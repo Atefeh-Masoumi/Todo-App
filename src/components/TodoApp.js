@@ -14,10 +14,31 @@ const TodoApp = () => {
         setTodo([...todo, newTodo]);
 
     }
+
+    const completeTodo=(id)=>{
+        
+        const index = todo.findIndex(todo=>todo.id===id);
+        
+        const selectedTodo={...todo[index]};
+        selectedTodo.isCompleted=!selectedTodo.isCompleted;
+        const updatedTodos=[...todo]
+        updatedTodos[index]=selectedTodo;
+        setTodo(updatedTodos);
+    }
+
+    const removeHandler=(id)=>{
+        const filteredTodos = todo.filter((t)=>t.id !== id);
+        setTodo(filteredTodos);
+
+
+    }
+    const editTodo=(id)=>{
+        
+    }
     return (
         <div className="container">
             <TodoForm addtodoHandler={addtodoHandler}/>
-            <TodoList todo={todo}/>          
+            <TodoList todo={todo} onComplete={completeTodo} onDelete={removeHandler} onEdit={editTodo}/>          
             </div>
       );
 }
