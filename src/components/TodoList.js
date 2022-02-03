@@ -1,8 +1,14 @@
 import { useState } from "react"
 import Todo from "./Todo"
+import TodoForm from './TodoForm'
 
-const TodoList = ({todo, onComplete, onDelete, onEdit}) => {
- 
+const TodoList = ({todo, onComplete, onDelete, onupdateTodo}) => {
+ const editeTodo=(newValue)=>{
+
+     onupdateTodo(edit.id, newValue);
+     setEdit({id:null, text:""});
+
+ }
   const [edit, setEdit]=useState({id:null, text:"", isCompleted:false});
 
     const renderTodos=()=>{
@@ -18,7 +24,7 @@ const TodoList = ({todo, onComplete, onDelete, onEdit}) => {
        
     
     
-    return <div>{renderTodos()}</div>
+    return <div>{edit.id? <TodoForm submitTodo={editeTodo} edit={edit}/>: renderTodos()}</div>
 }
  
 export default TodoList;

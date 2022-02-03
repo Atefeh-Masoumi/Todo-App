@@ -33,3 +33,65 @@
   text-decoration: line-through;
   color: #7e7979;
 }
+input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 3px;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid blueviolet;
+}
+.formControl {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20rem;
+  margin-bottom: 20px;
+}
+.btn {
+  color: #6d28d9;
+  background-color: #fff;
+  border: 1px solid #6d28d9;
+  border-radius: 5px;
+  outline: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.remove {
+  color: rgb(233, 23, 23);
+  border: 1px solid rgb(219, 78, 78);
+  margin-left: 10px;
+}
+.updateTodo {
+  background-color: #6d28d9;
+  color: #fff;
+}
+.addTodo {
+  background-color: #c7c1d1;
+}
+.todotext {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+header {
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+header span {
+  margin-right: 20px;
+  display: inline-block;
+  width: 20px;
+  font-size: 14px;
+  height: 20px;
+  background-color: #d0c7f7;
+  color: #6d28d9;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

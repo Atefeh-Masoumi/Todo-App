@@ -1,21 +1,25 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const TodoForm = (props) => {
-    const [input, setInput]=useState("");
+const TodoForm = ({buttonLabel="Add",edit,submitTodo}) => {
+    const [input, setInput]=useState(edit? edit.text: "");
+    const inputRef=useRef(null);
+    useEffect(()=>{
+        inputRef.current.focus();
+    },[])
 
     const changeHandler=(e)=>{
         setInput(e.target.value)
     };
 
     const submitHandler=(e)=>{
-        console.log(e.target.value);
+        
         
         e.preventDefault();
         if(!input){
-            alert("insert todo")
+            alert("insert todo");
             return
         }
-        props.addtodoHandler(input);
+        submitTodo(input);
         
         //add entered todos  to todos
         setInput('');
@@ -24,8 +28,16 @@ const TodoForm = (props) => {
 
     return ( 
         <form onSubmit={submitHandler}>
-            <input type='text' value={input} onChange={changeHandler}/>
-            <button type="submit">Add</button>
+         <div className="formControl">
+          <input
+           type='text' value={input} onChange={changeHandler} 
+           placeholder= "add new todo"
+            ref={inputRef}
+            />
+            <button className={`btn ${edit ?"updateTodo " :"addTodo"}`} type="submit">{buttonLabel}</button>
+           
+            </div>   
+            
         </form>
      );
 }
