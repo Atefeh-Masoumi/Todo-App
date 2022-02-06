@@ -69,7 +69,8 @@ input:focus {
   color: #fff;
 }
 .addTodo {
-  background-color: #c7c1d1;
+  background-color: #6d28d9;
+  color: #fff;
 }
 .todotext {
   cursor: pointer;
