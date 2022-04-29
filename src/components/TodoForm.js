@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const TodoForm = ({buttonLabel="Add",edit,submitTodo}) => {
     const [input, setInput]=useState(edit? edit.text: "");
-    const inputRef=useRef(null);
+    const inputRef= useRef(null);
     useEffect(()=>{
         inputRef.current.focus();
     },[])
